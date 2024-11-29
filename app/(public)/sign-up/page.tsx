@@ -28,11 +28,10 @@ export default function SignUp() {
     address: '',
     phoneNumber: '',
     location: {
-      lat: null,
-      lng: null,
+      lat: 0,
+      lng: 0,
     },
   });
-  const [remember, setRemember] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
   // Function to request location
@@ -159,9 +158,6 @@ export default function SignUp() {
             <div className="flex items-center space-x-2">
               <Checkbox
                 id="remember"
-                onCheckedChange={(checked) => {
-                  setRemember(checked ? 1 : 0);
-                }}
               />
               <label
                 htmlFor="remember"

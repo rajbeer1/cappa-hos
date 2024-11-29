@@ -50,7 +50,9 @@ const HomePage = () => {
       };
   const [crashData, setCrashData] = useState<CrashData[]>([]);
   const [loading, setLoading] = useState(true);
-  const [coordinates, setCoordinates] = useState<number[] | null>(null); // Change to array
+const [coordinates, setCoordinates] = useState<
+  { lat: number; lng: number; email: string }[]
+>([]);
   const [hospitalLocation, setHospitalLocation] = useState<{
     lat: number;
     lng: number;
@@ -70,7 +72,7 @@ const HomePage = () => {
         setCrashData(response.data);
 
         // Extract user location from the latest reading
-     const locations = response.data.map((crash) => {
+     const locations = response.data.map((crash:any) => {
        const latestReading = crash.latestReading;
        return {
          lat: latestReading.location.coordinates[0], // Latitude
