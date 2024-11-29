@@ -6,7 +6,7 @@ class SocketClient {
   public token = Cookies.get('hosuser')
   
   private constructor() {
-    this.socket = io('http://localhost:3000', {
+    this.socket = io('https://rajbeer.tech', {
       query: {
         token: this.token,
       },
